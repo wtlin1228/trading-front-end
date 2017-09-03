@@ -9,15 +9,15 @@ class CurrentDealProductDisplay extends React.Component {
         let disp_date = null;
         if (diff) {
             disp_date = this.props.product.date.replace('+08:00', '').replace('T', ' ');
-            lot_diff = diff.lot_diff.toFixed(2);
-            count_diff = diff.count_diff.toFixed(2);
+            lot_diff = diff.lot_diff;
+            count_diff = diff.count_diff;
             avg_diff = diff.avg_diff.toFixed(2);
         }
         return (
             <div>
-                <table htmlAlign='left'>
+                <table>
                 <tr>
-                  <td> 代號 </td>
+                  <td>  </td>
                   <td> {this.props.productName} </td>
                 </tr>
                 <tr>

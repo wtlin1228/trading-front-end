@@ -4,12 +4,12 @@ var CurrentDealProductDisplay = require('./CurrentDealProductDisplay');
 class CurrentDeal extends React.Component {
     constructor() {
         super();
-        this.PRODUCT_LIST = ['TX00', 'MTX00', '2330', '2317']
+        this.PRODUCT_LIST = ['TX00', 'MTX00', '2330', '2317'];
         this.state = {
-            TX00: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
-            MTX00: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
-            2330: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
-            2317: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
+            TX00: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            MTX00: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            2330: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            2317: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
             productNameTable: {},
         };
 
@@ -39,10 +39,10 @@ class CurrentDeal extends React.Component {
             .then(this.updateProductNameTable);
 
         const fetchData = () => {
-          this.PRODUCT_LIST.map(getBS);
-        }
-        
-        this._interval = window.setInterval(fetchData, 2000);
+            this.PRODUCT_LIST.map(getBS);
+        };
+
+        this._interval = window.setInterval(fetchData, 1000);
         this._getProductNameTableInterval = window.setInterval(getProductNameTable, 1000);
     }
 
@@ -60,36 +60,37 @@ class CurrentDeal extends React.Component {
     }
 
     parseJSON(response) {
-        if(response == undefined) return ;
+        if (response === undefined) return;
         return response.json();
     }
 
     updateBS(data) {
-        try{
-          let newState = Object.assign({}, this.state);
-          newState[data.stock_symbol].bs = data.bs;
-          newState[data.stock_symbol].diff = data.diff;
-          newState[data.stock_symbol].date = data.date.end;
-          newState[data.stock_symbol].price = data.price;
-          newState[data.stock_symbol].stock_symbol = data.stock_symbol;
-          this.setState(newState);
+        try {
+            let newState = Object.assign({}, this.state);
+            newState[data.stock_symbol].bs = data.bs;
+            newState[data.stock_symbol].diff = data.diff;
+            newState[data.stock_symbol].date = data.date.end;
+            newState[data.stock_symbol].price = data.price;
+            newState[data.stock_symbol].stock_symbol = data.stock_symbol;
+            this.setState(newState);
         }
-        catch(err){
-          console.log(err);
+        catch (err) {
+            console.log(err);
         }
     }
-    updateProductNameTable(data){
-        try{
-          console.log(data);
-          if(data != undefined){
-            window.clearInterval(this._getProductNameTableInterval);
-          }
-          let newState = Object.assign({}, this.state);
-          newState['productNameTable'] = data;
-          this.setState(newState);
+
+    updateProductNameTable(data) {
+        try {
+            console.log(data);
+            if (data != undefined) {
+                window.clearInterval(this._getProductNameTableInterval);
+            }
+            let newState = Object.assign({}, this.state);
+            newState['productNameTable'] = data;
+            this.setState(newState);
         }
-        catch(err){
-          console.log(err);
+        catch (err) {
+            console.log(err);
         }
     }
 
@@ -97,17 +98,20 @@ class CurrentDeal extends React.Component {
         return (
             <div>
                 <table>
-                  <tr>
-                    <th><CurrentDealProductDisplay product={this.state["TX00"]} productName={this.state.productNameTable["TX00"]} /> </th>
-                    <th><CurrentDealProductDisplay product={this.state["MTX00"]} productName={this.state.productNameTable["MTX00"]}/> </th>
-                    <th><CurrentDealProductDisplay product={this.state["2330"]} productName={this.state.productNameTable["2330"]}/>  </th>
-                    <th><CurrentDealProductDisplay product={this.state["2317"]} productName={this.state.productNameTable["2317"]}/>  </th>
-                  </tr>
+                    <tr>
+                        <th><CurrentDealProductDisplay product={this.state["TX00"]}
+                                                       productName={this.state.productNameTable["TX00"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["MTX00"]}
+                                                       productName={this.state.productNameTable["MTX00"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["2330"]}
+                                                       productName={this.state.productNameTable["2330"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["2317"]}
+                                                       productName={this.state.productNameTable["2317"]}/></th>
+                    </tr>
                 </table>
             </div>
         )
     }
 }
 
-module
-    .exports = CurrentDeal;
+module.exports = CurrentDeal;
