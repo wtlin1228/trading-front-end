@@ -46,23 +46,23 @@ class CurrentDealProductDisplay extends React.Component {
                     </tr>
                     <tr>
                         <td> 口差</td>
-                        <td style={colorBackground(lot_diff)> {lot_diff} </td>
+                        <td style={colorBackground(lot_diff)}> {lot_diff} </td>
                     </tr>
                     <tr>
                         <td> 筆差</td>
-                        <td style={colorBackground(count_diff)> {count_diff} </td>
+                        <td style={colorBackground(count_diff)}> {count_diff} </td>
                     </tr>
                     <tr>
                         <td> 均差</td>
-                        <td style={colorBackground(avg_diff)> {avg_diff} </td>
+                        <td style={colorBackground(avg_diff)}> {avg_diff} </td>
                     </tr>
                     <tr>
                         <td> 口差(大單)</td>
-                        <td style={colorBackground(lot_diff_big)> {lot_diff_big} </td>
+                        <td style={colorBackground(lot_diff_big)}> {lot_diff_big} </td>
                     </tr>
                     <tr>
                         <td> 筆差(大單)</td>
-                        <td style={colorBackground(count_diff_big)> {count_diff_big} </td>
+                        <td style={colorBackground(count_diff_big)}> {count_diff_big} </td>
                     </tr>
                     <tr>
                         <td> 均差(大單)</td>
