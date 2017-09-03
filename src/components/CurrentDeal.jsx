@@ -5,21 +5,11 @@ class CurrentDeal extends React.Component {
     constructor() {
         super();
         this.PRODUCT_LIST = ['TX00', 'MTX00', '2330', '2317']
-        //this.state = {
-        //  TX00: null,
-        //  MTX00: null,
-        //  2330: null,
-        //  2317: null,
-        //}
         this.state = {
             TX00: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
             MTX00: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
             2330: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
             2317: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
-            bs: '',
-            diff: null,
-            date: null,
-            stock_symbol: null,
         };
 
         this.checkStatus = this.checkStatus.bind(this);
@@ -50,18 +40,7 @@ class CurrentDeal extends React.Component {
           this.PRODUCT_LIST.map(getBS);
         }
 
-        //getPrice('TX00');
-        //getBS('TX00');
-
-        //this._interval = window.setInterval(getPrice, 1000);
-        //this._interval = window.setInterval(getBS, 1000);
         this._interval = window.setInterval(fetchData, 1000);
-        //fetchData();
-        //fetchData();
-        //fetchData();
-        //fetchData();
-        //fetchData();
-        //fetchData();
     }
 
     checkStatus(response) {
@@ -95,8 +74,6 @@ class CurrentDeal extends React.Component {
     }
 
     updateBS(data) {
-        //console.log("updateBS");
-        //console.log(data);
         let newState = Object.assign({}, this.state);
         try{
           newState[data.stock_symbol].bs = data.bs;
@@ -121,10 +98,6 @@ class CurrentDeal extends React.Component {
                     <th><CurrentDealProductDisplay product={this.state["2317"]}/>  </th>
                   </tr>
                 </table>
-                
-                
-                
-                
             </div>
         )
     }

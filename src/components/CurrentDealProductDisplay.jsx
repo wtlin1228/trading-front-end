@@ -13,7 +13,6 @@ class CurrentDealProductDisplay extends React.Component {
             count_diff = diff.count_diff.toFixed(2);
             avg_diff = diff.avg_diff.toFixed(2);
         }
-        //console.log(this.props.product)
         return (
             <div>
                 <table htmlAlign='left'>
