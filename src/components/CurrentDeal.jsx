@@ -1,15 +1,21 @@
-var React = require('react');
-var CurrentDealProductDisplay = require('./CurrentDealProductDisplay');
+let React = require('react');
+let CurrentDealProductDisplay = require('./CurrentDealProductDisplay');
 
 class CurrentDeal extends React.Component {
     constructor() {
         super();
-        this.PRODUCT_LIST = ['TX00', 'MTX00', '2330', '2317'];
+        this.PRODUCT_LIST = ['TX00', 'MTX00', 'TE00', 'TF00',
+            '2330', '2317', '6505', '2412', '3008'];
         this.state = {
             TX00: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
             MTX00: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            TE00: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            TF00: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
             2330: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
             2317: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            6505: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            2412: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
+            3008: {stock_symbol: '', price: '', bs: '', diff: '', date: ''},
             productNameTable: {},
         };
 
@@ -21,7 +27,7 @@ class CurrentDeal extends React.Component {
 
     componentDidMount() {
         console.log('mount');
-        const SRCURL = 'http://www.surprice3c.com:8000'
+        const SRCURL = 'http://www.surprice3c.com:8000';
         const APIURL = SRCURL + '/api';
 
         let query = '';
@@ -82,7 +88,7 @@ class CurrentDeal extends React.Component {
     updateProductNameTable(data) {
         try {
             console.log(data);
-            if (data != undefined) {
+            if (data !== undefined) {
                 window.clearInterval(this._getProductNameTableInterval);
             }
             let newState = Object.assign({}, this.state);
@@ -98,16 +104,30 @@ class CurrentDeal extends React.Component {
         return (
             <div>
                 <table>
+                    <tbody>
                     <tr>
                         <th><CurrentDealProductDisplay product={this.state["TX00"]}
                                                        productName={this.state.productNameTable["TX00"]}/></th>
                         <th><CurrentDealProductDisplay product={this.state["MTX00"]}
                                                        productName={this.state.productNameTable["MTX00"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["TE00"]}
+                                                       productName={this.state.productNameTable["TE00"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["TF00"]}
+                                                       productName={this.state.productNameTable["TF00"]}/></th>
+                    </tr>
+                    <tr>
                         <th><CurrentDealProductDisplay product={this.state["2330"]}
                                                        productName={this.state.productNameTable["2330"]}/></th>
                         <th><CurrentDealProductDisplay product={this.state["2317"]}
                                                        productName={this.state.productNameTable["2317"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["6505"]}
+                                                       productName={this.state.productNameTable["6505"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["2412"]}
+                                                       productName={this.state.productNameTable["2412"]}/></th>
+                        <th><CurrentDealProductDisplay product={this.state["3008"]}
+                                                       productName={this.state.productNameTable["3008"]}/></th>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         )
