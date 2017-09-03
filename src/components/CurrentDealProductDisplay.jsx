@@ -22,12 +22,12 @@ class CurrentDealProductDisplay extends React.Component {
         const colorBackground = (diff) => {
             const LargerThanZero = {
                 color: 'red',
-            }
+            };
             const LesserThanZero = {
                 color: 'green',
-            }
+            };
             return diff>=0 ? LargerThanZero : LesserThanZero;
-        }
+        };
         return (
             <div>
                 <table>
