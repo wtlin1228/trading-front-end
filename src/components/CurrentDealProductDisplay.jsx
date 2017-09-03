@@ -8,7 +8,7 @@ class CurrentDealProductDisplay extends React.Component {
         let avg_diff = null;
         let disp_date = null;
         if (diff) {
-            disp_date = this.props.product.price.datetime.replace('+08:00', '').replace('T', ' ');
+            disp_date = this.props.product.date.replace('+08:00', '').replace('T', ' ');
             lot_diff = diff.lot_diff.toFixed(2);
             count_diff = diff.count_diff.toFixed(2);
             avg_diff = diff.avg_diff.toFixed(2);
@@ -26,7 +26,7 @@ class CurrentDealProductDisplay extends React.Component {
                 </tr>
                 <tr>
                   <td> 成交價 </td>
-                  <td> {this.props.product.price.price} </td>
+                  <td> {this.props.product.price} </td>
                 </tr>
                 <tr>
                   <td> 口差 </td>

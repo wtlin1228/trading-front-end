@@ -15,7 +15,6 @@ class CurrentDeal extends React.Component {
 
         this.checkStatus = this.checkStatus.bind(this);
         this.parseJSON = this.parseJSON.bind(this);
-        this.updatePrice = this.updatePrice.bind(this);
         this.updateBS = this.updateBS.bind(this);
         this.updateProductNameTable = this.updateProductNameTable.bind(this);
     }
@@ -26,12 +25,6 @@ class CurrentDeal extends React.Component {
         const APIURL = SRCURL + '/api';
 
         let query = '';
-        const getPrice = (product) => fetch(APIURL + '/prices/' + product + '/' + query, {
-            accept: 'application/json',
-            method: 'get',
-        }).then(this.checkStatus)
-            .then(this.parseJSON)
-            .then(this.updatePrice);
         const getBS = (product) => fetch(APIURL + '/bs/' + product + '/' + query, {
             accept: 'application/json',
             method: 'get',
@@ -46,7 +39,6 @@ class CurrentDeal extends React.Component {
             .then(this.updateProductNameTable);
 
         const fetchData = () => {
-          this.PRODUCT_LIST.map(getPrice);
           this.PRODUCT_LIST.map(getBS);
         }
         
@@ -72,24 +64,13 @@ class CurrentDeal extends React.Component {
         return response.json();
     }
 
-    updatePrice(data) {
-        try{
-          let newState = Object.assign({}, this.state);
-          newState[data.stock_symbol].price = data;
-          newState[data.stock_symbol].stock_symbol = data.stock_symbol;
-          this.setState(newState);
-        }
-        catch(err){
-          console.log(err);
-        }
-    }
-
     updateBS(data) {
         try{
           let newState = Object.assign({}, this.state);
           newState[data.stock_symbol].bs = data.bs;
           newState[data.stock_symbol].diff = data.diff;
-          newState[data.stock_symbol].date = data.date;
+          newState[data.stock_symbol].date = data.date.end;
+          newState[data.stock_symbol].price = data.price;
           newState[data.stock_symbol].stock_symbol = data.stock_symbol;
           this.setState(newState);
         }
