@@ -10,17 +10,20 @@ class CurrentDeal extends React.Component {
             MTX00: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
             2330: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
             2317: {stock_symbol: '', price: '', bs: '', diff: '', date:''},
+            productNameTable: {},
         };
 
         this.checkStatus = this.checkStatus.bind(this);
         this.parseJSON = this.parseJSON.bind(this);
         this.updatePrice = this.updatePrice.bind(this);
         this.updateBS = this.updateBS.bind(this);
+        this.updateProductNameTable = this.updateProductNameTable.bind(this);
     }
 
     componentDidMount() {
         console.log('mount');
-        const APIURL = 'http://www.surprice3c.com:8000/api';
+        const SRCURL = 'http://www.surprice3c.com:8000'
+        const APIURL = SRCURL + '/api';
 
         let query = '';
         const getPrice = (product) => fetch(APIURL + '/prices/' + product + '/' + query, {
@@ -29,18 +32,26 @@ class CurrentDeal extends React.Component {
         }).then(this.checkStatus)
             .then(this.parseJSON)
             .then(this.updatePrice);
-        const getBS = (product) => fetch(APIURL+'/bs/' + product + '/' + query, {
+        const getBS = (product) => fetch(APIURL + '/bs/' + product + '/' + query, {
             accept: 'application/json',
             method: 'get',
         }).then(this.checkStatus)
             .then(this.parseJSON)
             .then(this.updateBS);
+        const getProductNameTable = () => fetch(APIURL + '/symbol-name', {
+            accept: 'application/json',
+            method: 'get',
+        }).then(this.checkStatus)
+            .then(this.parseJSON)
+            .then(this.updateProductNameTable);
+
         const fetchData = () => {
           this.PRODUCT_LIST.map(getPrice);
           this.PRODUCT_LIST.map(getBS);
         }
-
-        this._interval = window.setInterval(fetchData, 1000);
+        
+        this._interval = window.setInterval(fetchData, 2000);
+        this._getProductNameTableInterval = window.setInterval(getProductNameTable, 1000);
     }
 
     checkStatus(response) {
@@ -74,8 +85,8 @@ class CurrentDeal extends React.Component {
     }
 
     updateBS(data) {
-        let newState = Object.assign({}, this.state);
         try{
+          let newState = Object.assign({}, this.state);
           newState[data.stock_symbol].bs = data.bs;
           newState[data.stock_symbol].diff = data.diff;
           newState[data.stock_symbol].date = data.date;
@@ -86,16 +97,30 @@ class CurrentDeal extends React.Component {
           console.log(err);
         }
     }
+    updateProductNameTable(data){
+        try{
+          console.log(data);
+          if(data != undefined){
+            window.clearInterval(this._getProductNameTableInterval);
+          }
+          let newState = Object.assign({}, this.state);
+          newState['productNameTable'] = data;
+          this.setState(newState);
+        }
+        catch(err){
+          console.log(err);
+        }
+    }
 
     render() {
         return (
             <div>
-                <table htmlStyle="width:100%">
+                <table>
                   <tr>
-                    <th><CurrentDealProductDisplay product={this.state["TX00"]}/> </th>
-                    <th><CurrentDealProductDisplay product={this.state["MTX00"]}/> </th>
-                    <th><CurrentDealProductDisplay product={this.state["2330"]}/>  </th>
-                    <th><CurrentDealProductDisplay product={this.state["2317"]}/>  </th>
+                    <th><CurrentDealProductDisplay product={this.state["TX00"]} productName={this.state.productNameTable["TX00"]} /> </th>
+                    <th><CurrentDealProductDisplay product={this.state["MTX00"]} productName={this.state.productNameTable["MTX00"]}/> </th>
+                    <th><CurrentDealProductDisplay product={this.state["2330"]} productName={this.state.productNameTable["2330"]}/>  </th>
+                    <th><CurrentDealProductDisplay product={this.state["2317"]} productName={this.state.productNameTable["2317"]}/>  </th>
                   </tr>
                 </table>
             </div>

@@ -18,7 +18,7 @@ class CurrentDealProductDisplay extends React.Component {
                 <table htmlAlign='left'>
                 <tr>
                   <td> 代號 </td>
-                  <td> {this.props.product.stock_symbol} </td>
+                  <td> {this.props.productName} </td>
                 </tr>
                 <tr>
                   <td> 時間 </td>
