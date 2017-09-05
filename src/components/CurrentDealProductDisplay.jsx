@@ -40,25 +40,40 @@ class CurrentDealProductDisplay extends React.Component {
             return (<td> {value} </td>)
         };
 
-        const trRowValue = (value, autoColor) => {
-            return (
-                <tr style={{'font-weight': 'bold', 'height': 30}}>
-                    {tdValue(value, autoColor)}
-                </tr>)
+        const trRowValue = (value, autoColor, updated) => {
+            if (updated) {
+                const bgColor = (updated > 0) ? '#ffd6d3' : '#daffd8';
+                return (
+                    <tr style={{'font-weight': 'bold', 'height': 30,
+                        'background-color': bgColor,
+                        transition: 'all 300ms ease-out'}}>
+                        {tdValue(value, autoColor)}
+                    </tr>
+                )
+            }
+
+            else {
+                return (
+                    <tr style={{'font-weight': 'bold', 'height': 30,
+                        transition: 'all 300ms ease-in'}}>
+                        {tdValue(value, autoColor)}
+                    </tr>
+                )
+            }
         };
 
         return (
             <table>
                 <tbody style={{'textAlign': 'center'}}>
                 {trRowValue(prdName, false)}
-                {trRowValue(dispDate, false)}
-                {trRowValue(prdPrice, false)}
-                {trRowValue(diffLot, true)}
-                {trRowValue(diffCount, true)}
-                {trRowValue(diffAvg, true)}
-                {trRowValue(diffLotBig, true)}
-                {trRowValue(diffCountBig, true)}
-                {trRowValue(diffAvgBig, true)}
+                {trRowValue(dispDate, false, prd.updated)}
+                {trRowValue(prdPrice, false, prd.updated)}
+                {trRowValue(diffLot, true, prd.updated)}
+                {trRowValue(diffCount, true, prd.updated)}
+                {trRowValue(diffAvg, true, prd.updated)}
+                {trRowValue(diffLotBig, true, prd.updated)}
+                {trRowValue(diffCountBig, true, prd.updated)}
+                {trRowValue(diffAvgBig, true, prd.updated)}
                 </tbody>
             </table>
         )

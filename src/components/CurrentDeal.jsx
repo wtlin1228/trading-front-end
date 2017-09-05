@@ -66,18 +66,26 @@ class CurrentDeal extends React.Component {
     updateBS(data) {
         try {
             let stockName = this.state.productNameTable[data.stock_symbol];
-            if(!stockName){
+            if (!stockName) {
                 stockName = data.stock_symbol
             }
-            let dd = {
+
+            let nextPrd = {
                 bs: data.bs,
                 diff: data.diff,
                 date: data.date.end,
                 price: data.price,
                 stock_symbol: data.stock_symbol,
-                stock_name: stockName
+                stock_name: stockName,
+                updated: false
             };
-            this.setState({[ data.stock_symbol]: dd});
+
+            let currentPrd = this.state[data.stock_symbol];
+            if(currentPrd && nextPrd.date > currentPrd.date){
+                nextPrd['updated'] = nextPrd.diff.lot_diff - currentPrd.diff.lot_diff;
+                console.log('nextPrd[\'updated\']' , nextPrd['updated'], nextPrd)
+            }
+            this.setState({[data.stock_symbol]: nextPrd});
         }
         catch (err) {
             console.log(err);
