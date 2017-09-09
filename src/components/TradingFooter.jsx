@@ -1,13 +1,12 @@
 var React = require('react');
 
 class TradingFooter extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1> Footer </h1>
-      </div>
-    )
-  }
+    render() {
+        return (
+                <object type="text/html" data="http://www.surprice3c.com:8000/static/stocks.html" width="100%" height="800">
+                </object>
+        )
+    }
 }
 
 module.exports = TradingFooter;

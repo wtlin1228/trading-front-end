@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-var TradingHeader = require('./components/TradingHeader')
-var TradingFooter = require('./components/TradingFooter')
-var CurrentDeal = require('./components/CurrentDeal');
-//import {TradingHeader} from './components/TradingHeader';
-//import {TradingFooter} from './components/TradingFooter';
-//import {CurrentDeal} from './components/CurrentDeal';
+let React = require('react');
+let TradingHeader = require('./components/TradingHeader');
+let TradingFooter = require('./components/TradingFooter');
+let CurrentDeal = require('./components/CurrentDeal');
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <CurrentDeal />
+        <TradingFooter />
       </div>
-    );
+    )
   }
 }
-
 export default App;
