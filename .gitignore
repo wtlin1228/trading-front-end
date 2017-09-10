@@ -21,3 +21,9 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea/
+
+# react bundle
+bundle/
+
+#VS Code
+/.vscode/
