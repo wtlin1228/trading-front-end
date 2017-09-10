@@ -1,4 +1,4 @@
-# test-program-app
+# trading-web
 
 ## Install
 ``` bash
