@@ -17,11 +17,11 @@ store.runSaga(rootSaga)
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <div className="app">
         <Switch>
-          <Route path="/" component={Index} />
-          <Route path="/test" component={Test} />     
+          <Route exact path="/" component={Index} />
+          <Route exact path="/test" component={Test} />     
         </Switch>
       </div>
     </Router>

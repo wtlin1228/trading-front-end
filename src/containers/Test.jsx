@@ -7,6 +7,9 @@ import * as actionCreators from '../actions'
 import 'antd/dist/antd.css'
 import { Button } from 'antd'
 
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
 class Test extends React.Component {
   constructor(props) {
     super(props)
@@ -22,10 +25,12 @@ class Test extends React.Component {
     console.log(this.props)
     return (
       <div>
+        <Header />
         <Link to="/">lnk to index</Link>
            
         <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
         <h1>Test</h1>
+        <Footer />
       </div>   
       
     )

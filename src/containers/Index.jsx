@@ -28,7 +28,7 @@ class Index extends React.Component {
         <Link to="/test">link to test</Link>
            
         <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
-        <h1>index</h1>
+        <h1>Index</h1>
         <Footer />
       </div>   
       
