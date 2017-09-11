@@ -6,6 +6,8 @@ import * as actionCreators from '../actions'
 
 import 'antd/dist/antd.css'
 import { Button } from 'antd'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 class Index extends React.Component {
   constructor(props) {
@@ -22,10 +24,12 @@ class Index extends React.Component {
     console.log(this.props)
     return (
       <div>
+        <Header />
         <Link to="/test">link to test</Link>
            
         <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
         <h1>index</h1>
+        <Footer />
       </div>   
       
     )
