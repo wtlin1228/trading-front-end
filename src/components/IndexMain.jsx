@@ -2,9 +2,8 @@ import React from 'react';
 import * as actionCreators from '../actions'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom"
-import { Layout, Button } from 'antd';
+import { Button } from 'antd';
 
-const antContent = Layout.Content;
 
 class IndexMain extends React.Component {
   constructor(props) {
@@ -18,12 +17,12 @@ class IndexMain extends React.Component {
 
   render() {
     return (
-      <antContent >
+      <div className="ant-layout-content" style={{ padding: '0 50px' }}>
         <Link to="/test">link to test</Link>
 
         <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
         <h1>Index</h1>
-      </antContent>
+      </div>
     )
   }
 }

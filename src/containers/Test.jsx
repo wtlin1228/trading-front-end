@@ -17,7 +17,7 @@ class Test extends React.Component {
   }
 
   handleClickButton() {
-    this.props.addTest('123321')
+    this.props.addTest('in the test')
   }
 
 

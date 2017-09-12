@@ -1,7 +1,5 @@
 import React from 'react';
 
-import 'antd/dist/antd.css'
-import { Layout } from 'antd'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import IndexMain from '../components/IndexMain'
@@ -10,16 +8,14 @@ class Index extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <Layout>
+      <div className="layout ant-layout">
         <Header />
         <IndexMain />
         <Footer />
-      </Layout>
+      </div>
       
     )
   }
 }
-
-
 
 export default Index
