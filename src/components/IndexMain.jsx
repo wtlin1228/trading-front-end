@@ -3,6 +3,7 @@ import * as actionCreators from '../actions'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom"
 import { Button } from 'antd';
+import BlueChipsTrendBar from "../components/BlueChipsTrendBar";
 
 
 class IndexMain extends React.Component {
@@ -22,6 +23,7 @@ class IndexMain extends React.Component {
 
         <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
         <h1>Index</h1>
+        <BlueChipsTrendBar />
       </div>
     )
   }
