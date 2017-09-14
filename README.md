@@ -16,6 +16,12 @@ npm install -g json-server
 $ npm install
 ```
 
+# Install Docker for Mac
+https://docs.docker.com/docker-for-mac/
+
+# Install Docker for Ubuntu
+
+
 ## Usage
 ```
 # Webpack builds once and watches for changes to apply
@@ -25,3 +31,7 @@ $ webpack -w
 $ npm start
 
 # Testing api server
+
+# Docker
+$ docker build -t trading-web .
+$ docker run -it -p 8000:8000 trading-web
