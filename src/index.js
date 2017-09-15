@@ -2,8 +2,7 @@ import "babel-polyfill"
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
-import BrowserRouter from 'react-router-dom/BrowserRouter'
+import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import configureStore from './store/configureStore'
