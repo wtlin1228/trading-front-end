@@ -10,6 +10,7 @@ import configureStore from './store/configureStore'
 import rootSaga from './sagas'
 import Index from './containers/Index'
 import Test from './containers/Test'
+import Trading from './containers/Trading'
 
 const store = configureStore()
 store.runSaga(rootSaga)
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Index} />
           <Route exact path="/test" component={Test} />
+          <Route exact path="/trading" component={Trading} />
         </Switch>
       </div>
     </Router>

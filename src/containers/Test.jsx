@@ -1,46 +1,72 @@
-import React from 'react';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom"
+import { Layout, Menu, Icon, Button, Breadcrumb } from 'antd'
+import TSider from '../components/TSider'
 
-import * as actionCreators from '../actions'
+import '../themes/trading.css'
 
-import 'antd/dist/antd.css'
-import { Button } from 'antd'
+const { Header, Content, Footer, Sider } = Layout;
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+let innerHeight
 
 class Test extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleClickButton = this.handleClickButton.bind(this)
+  state = {
+    collapsed: false,
+    windowWidth: window.innerWidth,
+    windowHeight: window.innerHeight
+  }
+  
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    })
   }
 
-  handleClickButton() {
-    this.props.addTest('in the test')
+  updateDimensions() {
+    console.log('resize')
+    this.setState({
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight
+    })
   }
 
+
+  componentWillMount() {
+    innerHeight = window.innerHeight
+    window.addEventListener("resize", this.updateDimensions.bind(this))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
+  }
 
   render() {
-    console.log(this.props)
     return (
-      <div>
-        <Header />
-        <Link to="/">lnk to index</Link>
-           
-        <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
-        <h1>Test</h1>
-        <Footer />
-      </div>   
-      
+      <Layout>
+        <TSider/>
+        <Layout>
+          <Header style={{ background: '#fff', padding: 0 }}>
+            <Icon
+              className="trigger"
+              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.toggle}
+            />
+          </Header>
+          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: this.state.windowHeight }}>
+            Content
+          </Content>
+        </Layout>
+      </Layout>
     )
   }
 }
 
 const mapStateToProps = store => (
   {
-    testReducer: store.testReducer,
+    
   }
 )
 
-export default connect(mapStateToProps, actionCreators)(Test)
+export default connect(mapStateToProps, null)(Test)
