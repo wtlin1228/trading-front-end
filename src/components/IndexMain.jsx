@@ -20,7 +20,7 @@ class IndexMain extends React.Component {
     return (
       <div className="ant-layout-content" style={{ padding: '0 50px' }}>
         <Link to="/test">link to test</Link>
-
+        <Link to="/trading">link to trading</Link>
         <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
         <h1>Index</h1>
         <BlueChipsTrendBar />
