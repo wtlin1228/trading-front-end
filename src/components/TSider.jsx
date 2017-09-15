@@ -37,6 +37,7 @@ class TSider extends React.Component {
   }
 }
 
+
 const mapStateToProps = store => (
   {
     collapsedReducer: store.collapsedReducer

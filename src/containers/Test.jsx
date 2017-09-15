@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom"
 import { Layout, Menu, Icon, Button, Breadcrumb } from 'antd'
+import TSider from '../components/TSider'
 
 import '../themes/trading.css'
 
@@ -44,30 +45,7 @@ class Test extends React.Component {
   render() {
     return (
       <Layout>
-        <Sider
-          trigger={null}
-          collapsible
-          collapsed={this.state.collapsed}
-        >
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Link to="/">
-                <Icon type="user" />
-                <span>nav 1</span>
-              </Link>
-              
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
+        <TSider/>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
             <Icon
