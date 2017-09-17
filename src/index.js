@@ -2,7 +2,7 @@ import "babel-polyfill"
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import configureStore from './store/configureStore'
@@ -20,8 +20,8 @@ ReactDOM.render(
       <div className="app">
         <Switch>
           <Route exact path="/" component={Index} />
-          <Route exact path="/test" component={Test} />
-          <Route exact path="/trading" component={Trading} />
+          <Route path="/test" component={Test} />
+          <Route path="/trading" component={Trading} />
         </Switch>
       </div>
     </Router>
