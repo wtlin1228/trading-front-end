@@ -11,11 +11,8 @@ class TradingFooter extends React.Component {
     componentDidMount() {
         this.interval = setInterval(() => this.setState({
                 time: Date.now()
-
-            ),
-            60000
+            }), 60000
         )
-        ;
     }
 
     render() {
