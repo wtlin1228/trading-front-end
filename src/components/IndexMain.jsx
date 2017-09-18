@@ -6,6 +6,7 @@ import {Button} from 'antd'
 import BlueChipsTrendBar from "../components/BlueChipsTrendBar"
 import OptionsMajorPositionBar from "../components/OptionsMajorPositionBar"
 import WsQuote from "../components/WsQuote"
+import Ticker from "../components/Ticker"
 
 class IndexMain extends React.Component {
     constructor(props) {
@@ -27,6 +28,7 @@ class IndexMain extends React.Component {
                 <WsQuote/>
                 <BlueChipsTrendBar/>
                 <OptionsMajorPositionBar/>
+                <Ticker />
             </div>
         )
     }
