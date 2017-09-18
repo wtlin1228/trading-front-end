@@ -4,41 +4,42 @@ class WsQuote extends React.Component {
     constructor() {
         super();
         this.state = {recvText: "", msg: []};
-        this.msg_counter = 0;
-        this.msg_size = 5;
-        this.ws2 = this.init_ws2("ws://www.surprice3c.com:8000/prices");
+        this.msgCounter = 0;
+        this.displayMsgLength = 5;
+        this.ws = this.init_ws("ws://www.surprice3c.com:8000/prices");
     }
 
-    ws_onmessage(event) {
-        var newMsg = this.state.msg;
-        var tp = {counter: this.msg_counter, data:event.data};
-        if (this.state.msg.length < this.msg_size) {
-            newMsg.push(tp);
-        } else {
-            var i = this.msg_counter % this.msg_size;
-            newMsg[i] = tp;
-        }
-        this.msg_counter += 1;
-        this.setState({msg: newMsg});
-    }
-
-    init_ws2(ws_api) {
-        var socket = new WebSocket(ws_api);
+    init_ws(ws_api) {
+        let socket = new WebSocket(ws_api);
 
         socket.onopen = function () {
             console.log("prices ws.onopen()")
         };
         socket.onmessage = this.ws_onmessage.bind(this);
         socket.onclose = function () {
-            console.log("ws2.onclose");
-        };
+            console.log("ws.onclose");
+            this.ws_reconnect();
+        }.bind(this);
         return socket;
     }
 
-    ws2_reconnect() {
-        console.log("ws2_reconnect");
-        ws2.close();
-        ws2 = init_ws2();
+    ws_onmessage(event) {
+        let msg = this.state.msg;
+        let tp = {counter: this.msgCounter, data: event.data};
+        if (msg.length < this.displayMsgLength) {
+            msg.push(tp);
+        } else {
+            let i = this.msgCounter % this.displayMsgLength;
+            msg[i] = tp;
+        }
+        this.msgCounter += 1;
+        this.setState({msg: msg});
+    }
+
+    ws_reconnect() {
+        console.log("ws_reconnect");
+        this.ws.close();
+        this.ws = this.init_ws();
     }
 
     componentDidMount() {
@@ -47,8 +48,11 @@ class WsQuote extends React.Component {
     render() {
         let msgList = this.state.msg.map((m) => <div>{m.counter} {m.data}<br/></div>);
         return (
-            <div>{msgList}</div>
-
+            <div>
+                <p> ----- Realtime Quote ----- </p>
+                {msgList}
+                <p> -------------------------- </p>
+            </div>
         )
     }
 }
