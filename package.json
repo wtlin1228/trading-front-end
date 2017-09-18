@@ -1,6 +1,7 @@
 {
   "name": "trading_web_standalone",
   "version": "0.0.1",
+  "private": true,
   "description": "trading_web_standalone",
   "main": "index.js",
   "scripts": {
