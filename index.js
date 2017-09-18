@@ -1,10 +1,10 @@
-var express = require('express')
+var express = require('express');
 
-var app = express()
+var app = express();
 
 app.use(express.static('public'))
-app.get('/', function (req, res) {
+app.get('/', function (req, res) {;
   console.log('Trading AI web server is up on port 8000')
-})
+});
 
-app.listen(8000)
+app.listen(8888);

@@ -9,6 +9,8 @@ import TSider from '../components/TSider'
 import THeader from '../components/THeader'
 import TContent from '../components/TContent'
 
+TSider.__ANT_LAYOUT_SIDER = true;
+
 class Trading extends React.Component {
   render() {
     return (
