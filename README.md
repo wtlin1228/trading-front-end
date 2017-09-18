@@ -11,9 +11,10 @@ $ cd trading_web_standalone
 # Install dependencies
 $ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
-$ npm install -g webpack@1.15.0
+$ npm install -g webpack
+$ npm insall -g yarn
 $ npm install -g json-server
-$ npm install
+$ yarn install
 ```
 
 # Install Docker for Mac
@@ -38,7 +39,7 @@ $ pip install docker-compose
 $ webpack -w
 
 # Start trading-web
-$ npm start
+$ yarn start
 
 # Testing api server
 
