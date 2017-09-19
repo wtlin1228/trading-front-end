@@ -4992,6 +4992,10 @@ react-test-renderer@^15.6.1:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
+react-websocket@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-websocket/-/react-websocket-1.2.0.tgz#df15e866ab9a0660b4155101dc5aa560bff6c12c"
+
 react@^15.6.0:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"

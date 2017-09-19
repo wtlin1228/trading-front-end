@@ -3,10 +3,11 @@ import * as actionCreators from '../actions'
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom"
 import {Button} from 'antd'
-import BlueChipsTrendBar from "../components/BlueChipsTrendBar"
-import OptionsMajorPositionBar from "../components/OptionsMajorPositionBar"
-import WsQuote from "../components/WsQuote"
-import Ticker from "../components/Ticker"
+import BlueChipsTrendBar from '../components/BlueChipsTrendBar'
+import OptionsMajorPositionBar from '../components/OptionsMajorPositionBar'
+import WsQuote from '../components/WsQuote'
+import WsQuoteTest from '../components/WsQuoteTest'
+import Ticker from '../components/Ticker'
 
 class IndexMain extends React.Component {
     constructor(props) {
@@ -25,6 +26,7 @@ class IndexMain extends React.Component {
                 <Link to="/trading">link to trading</Link>
                 <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
                 <h1>Index</h1>
+                <WsQuoteTest />
                 <WsQuote/>
                 <BlueChipsTrendBar/>
                 <OptionsMajorPositionBar/>
