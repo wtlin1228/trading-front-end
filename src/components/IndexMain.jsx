@@ -20,7 +20,8 @@ class IndexMain extends React.Component {
     }
 
     render() {
-        let traceQuoteSymbols = ['TX00', 'MTX00', 'TX410500I7', 'TX410550I7', 'TX410600I7'];
+        let traceQuoteSymbols = ['TX00', 'MTX00', '2330', '2317', '3008',
+            'TX410500I7', 'TX410550I7', 'TX410600I7', 'TX410500U7', 'TX410550U7', 'TX410600U7'];
         let wsQuoteList = traceQuoteSymbols.map((sym) => <WsQuote symbol={sym} key={sym}/>);
         return (
             <div className="ant-layout-content" style={{padding: '0 50px'}}>
@@ -28,7 +29,7 @@ class IndexMain extends React.Component {
                 <Link to="/trading">link to trading</Link>
                 <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
                 <h1>Index</h1>
-                {wsQuoteList}
+                <table><tr>{wsQuoteList}</tr></table>
                 <WsQuoteAll/>
                 <BlueChipsTrendBar/>
                 <OptionsMajorPositionBar/>
