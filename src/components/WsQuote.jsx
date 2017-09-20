@@ -1,60 +1,44 @@
-import React from 'react';
+import React from 'react'
+import {connect} from 'react-redux';
+import {Link} from "react-router-dom"
+import Websocket from 'react-websocket'
+
+import * as actionCreators from '../actions'
 
 class WsQuote extends React.Component {
-    constructor() {
-        super();
-        this.state = {recvText: "", msg: []};
-        this.msgCounter = 0;
-        this.displayMsgLength = 5;
-        this.ws = this.initWs("ws://www.surprice3c.com:8000/prices");
-    }
+    constructor(props) {
+        super(props);
 
-    initWs(ws_api) {
-        let socket = new WebSocket(ws_api);
-
-        socket.onopen = function () {
-            console.log("prices ws.onopen()")
-        };
-        socket.onmessage = this.wsOnMessage.bind(this);
-        socket.onclose = function () {
-            console.log("ws.onclose");
-            this.wsReconnect();
-        }.bind(this);
-        return socket;
-    }
-
-    wsOnMessage(event) {
-        let msg = this.state.msg;
-        let tp = {counter: this.msgCounter, data: event.data};
-        if (msg.length < this.displayMsgLength) {
-            msg.push(tp);
-        } else {
-            let i = this.msgCounter % this.displayMsgLength;
-            msg[i] = tp;
+        this.state = {
+            data: '',
+            symbol: props.symbol
         }
-        this.msgCounter += 1;
-        this.setState({msg: msg});
     }
 
-    wsReconnect() {
-        console.log("wsReconnect");
-        this.ws.close();
-        this.ws = this.initWs();
-    }
-
-    componentDidMount() {
+    handleData(data) {
+        let result = JSON.parse(data);
+        console.log(result);
+        this.setState({data: result});
     }
 
     render() {
-        let msgList = this.state.msg.map((m) => <div key={m.id}>{m.counter} {m.data}<br/></div>);
+        let dispData = this.state.symbol + " " + this.state.data.price + " " + this.state.data.datetime;
+        let wsUrl = 'ws://www.surprice3c.com:8000/prices/' + this.state.symbol;
         return (
             <div>
-                <p> ----- Realtime Quote ----- </p>
-                {msgList}
-                <p> -------------------------- </p>
+                <strong>{dispData}</strong>
+                <Websocket url={wsUrl}
+                           onMessage={this.handleData.bind(this)}/>
             </div>
         )
     }
 }
 
-export default WsQuote
+const mapStateToProps = store => (
+    {
+        collapsedReducer: store.collapsedReducer
+    }
+);
+
+export default connect(mapStateToProps, actionCreators)(WsQuote)
+
