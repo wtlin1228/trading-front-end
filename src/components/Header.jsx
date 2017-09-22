@@ -23,7 +23,7 @@ class Header extends React.Component {
     const Default = ({ children }) => <Responsive minWidth={768} children={children} />;
 
     return (
-      <div className="ant-layout-header" style={headerStyle}>
+      <header className="ant-layout-header" style={headerStyle}>
         <Row>
           <Desktop><HeaderMenu menuMode="horizontal" /></Desktop>
           <Tablet><HeaderPopover /></Tablet>
@@ -31,7 +31,7 @@ class Header extends React.Component {
           <Default></Default>
         </Row>
 
-      </div>
+      </header>
     );
   }
 }

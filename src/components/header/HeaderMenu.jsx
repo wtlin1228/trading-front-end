@@ -14,7 +14,7 @@ class HeaderMenu extends React.Component {
     const menuStyle = {
       'position': 'relative',
       'float': 'right',
-      'height': '100%',
+      'lineHeight': '64px',
     };
 
     const menu = [
