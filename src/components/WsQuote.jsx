@@ -26,7 +26,7 @@ class WsQuote extends React.Component {
 
     render() {
         let wsUrl = 'ws://www.surprice3c.com:8000/prices/' + this.state.symbol;
-        let price_change = this.state.data.price - this.state.data.open_price;
+        let price_change = parseFloat((this.state.data.price - this.state.data.open_price).toFixed(2));
         let price_change_percent = (price_change / this.state.data.open_price * 100.0).toFixed(2);
         const border = {border: "1px solid black", display: "inline-block", padding: "5px"};
         const red = {color: 'red'};
