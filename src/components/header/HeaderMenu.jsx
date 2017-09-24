@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Menu, Icon } from 'antd';
+import {Link} from "react-router-dom"
 
 const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -24,7 +25,8 @@ class HeaderMenu extends React.Component {
         style={menuStyle}
       >
         <Menu.Item key="mail">
-          <Icon type="mail" />Navigation One
+          <Link to='/layout'/>
+          <Icon type="mail" />Go to test Layout
         </Menu.Item>
         <Menu.Item key="app" disabled>
           <Icon type="appstore" />Navigation Two
