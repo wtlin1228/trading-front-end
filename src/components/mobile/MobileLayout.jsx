@@ -10,13 +10,23 @@ class MobileLayout extends React.Component {
 
     this.state = {
       collapsed: false,
+      logoText: 'Seafood AI',
     };
 
     this.onCollapse = this.onCollapse.bind(this);
+    this.toggleLogoText = this.toggleLogoText.bind(this);
+  }
+
+  toggleLogoText(text) {
+    if(text === 'SA') return 'Seafood AI';
+    else return 'SA'
   }
 
   onCollapse(collapsed) {
-    this.setState({ collapsed });
+    this.setState({
+      collapsed,
+      logoText: this.toggleLogoText(this.state.logoText),
+    });
   }
 
   render() {
@@ -27,6 +37,12 @@ class MobileLayout extends React.Component {
       'margin': '16px',
     };
 
+    const textStyle = {
+      'textAlign': 'center',
+      'fontSize': '21px',
+      'color': '#ffffff',
+    };
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
@@ -34,7 +50,11 @@ class MobileLayout extends React.Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="logo" style={logoStyle}/>
+          <div className="logo" style={logoStyle}>
+            <p style={textStyle}>
+              {this.state.logoText}
+            </p>
+          </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
               <Icon type="pie-chart" />
