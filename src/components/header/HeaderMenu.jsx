@@ -31,6 +31,7 @@ class HeaderMenu extends React.Component {
       'textAlign': 'center',
       'fontSize': '21px',
       'color': '#ffffff',
+      'margin':'-18px'
     };
 
     const menu = [
