@@ -43,8 +43,9 @@ class HeaderMenu extends React.Component {
           <Link to='/layout'/>
           <Icon type="mail" />Go to test Layout
         </Menu.Item>
-        <Menu.Item key="app" disabled>
-          <Icon type="appstore" />Navigation Two
+        <Menu.Item key="app">
+          <Link to='/trading'/>
+          <Icon type="appstore" />Trading
         </Menu.Item>
         <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
           <MenuItemGroup title="Item 1">

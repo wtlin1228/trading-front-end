@@ -3,11 +3,9 @@ import * as actionCreators from '../actions'
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom"
 import {Button} from 'antd'
-import BlueChipsTrendBar from '../components/BlueChipsTrendBar'
-import OptionsMajorPositionBar from '../components/OptionsMajorPositionBar'
 import WsQuoteAll from './WsQuoteAll'
 import WsQuote from './WsQuote'
-import Ticker from '../components/Ticker'
+
 
 const Background = "../../static/img/cover.jpg"
 // http://localhost:8888/static/img/cover.jpg
@@ -54,15 +52,9 @@ class IndexMain extends React.Component {
             <h1 style={textStyle}>Hi, trading ai</h1>
           </section>
           <div className="ant-layout-content" style={{padding: '0 50px'}}>
-            <Link to="/test">link to test</Link>
-            <Link to="/trading">link to trading</Link>
-            <Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>
-            <h1>Index</h1>
+            {/*<Button type="primary" onClick={() => this.handleClickButton()}>addTest</Button>*/}
             <table><tr>{wsQuoteList}</tr></table>
             <WsQuoteAll/>
-            <BlueChipsTrendBar/>
-            <OptionsMajorPositionBar/>
-            <Ticker/>
             </div>
         </div>
             
