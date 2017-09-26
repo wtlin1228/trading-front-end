@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Menu, Icon, Button } from 'antd'
+import { Col, Menu, Icon } from 'antd'
 import {Link} from "react-router-dom"
 
 const { SubMenu } = Menu;
@@ -31,6 +31,9 @@ class HeaderMenu extends React.Component {
       'textAlign': 'center',
       'fontSize': '21px',
       'color': '#ffffff',
+      'position': 'absolute',
+      'top': '0px',
+      'left': '11px',
     };
 
     const menu = [
@@ -66,9 +69,11 @@ class HeaderMenu extends React.Component {
     return (
       <Col>
         <div className="logo" style={logoStyle}>
-          <p style={textStyle}>
-            Seafood AI
-          </p>
+          <Link to='/'>
+            <p style={textStyle}>
+              Seafood AI
+            </p>
+          </Link>
         </div>
         {menu}
       </Col>
