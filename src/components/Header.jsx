@@ -25,7 +25,7 @@ class Header extends React.Component {
     return (
       <header className="ant-layout-header" style={headerStyle}>
         <Row>
-          <Desktop><HeaderMenu menuMode="horizontal" /></Desktop>
+          <Desktop><HeaderMenu /></Desktop>
           <Tablet><HeaderPopover /></Tablet>
           <Mobile><HeaderPopover /></Mobile>
           <Default></Default>

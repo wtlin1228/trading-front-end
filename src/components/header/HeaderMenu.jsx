@@ -35,7 +35,7 @@ class HeaderMenu extends React.Component {
 
     const menu = [
       <Menu
-        mode={this.props.menuMode}
+        mode="horizontal"
         theme="dark"
         style={menuStyle}
       >

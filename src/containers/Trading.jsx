@@ -1,24 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom"
-import { Layout } from 'antd'
 
 import '../themes/trading.css'
 
-import TSider from '../components/TSider'
-import THeader from '../components/THeader'
-import TContent from '../components/TContent'
+import { Layout } from 'antd';
+import Footer from "../components/Footer";
+import TContent from "../components/TContent";
+import TSider from "../components/TSider";
 
 TSider.__ANT_LAYOUT_SIDER = true;
+
 
 class Trading extends React.Component {
   render() {
     return (
-      <Layout>
-        <TSider />
+      <Layout style={{ minHeight: '100vh' }}>
+        <TSider/>
         <Layout>
-          <THeader />
-          <TContent />
+          <header className="ant-layout-header" style={{ background: '#fff', padding: 0 }} />
+          <TContent/>
+          <Footer/>
         </Layout>
       </Layout>
     )
@@ -29,6 +30,6 @@ const mapStateToProps = store => (
   {
     
   }
-)
+);
 
 export default connect(mapStateToProps, null)(Trading)
