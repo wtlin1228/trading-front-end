@@ -45,4 +45,4 @@ $ yarn start
 
 # Docker
 $ docker build -t trading-web .
-$ docker run -it -p 8000:8000 trading-web
+$ docker run -it -p 8888:8888 trading-web
