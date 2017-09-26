@@ -1,60 +1,62 @@
-import React from 'react';
+import React from 'react'
+import {connect} from 'react-redux';
+import {Link} from "react-router-dom"
+import Websocket from 'react-websocket'
+
+import * as actionCreators from '../actions'
 
 class WsQuote extends React.Component {
-    constructor() {
-        super();
-        this.state = {recvText: "", msg: []};
-        this.msgCounter = 0;
-        this.displayMsgLength = 5;
-        this.ws = this.init_ws("ws://www.surprice3c.com:8000/prices");
-    }
+    constructor(props) {
+        super(props);
 
-    init_ws(ws_api) {
-        let socket = new WebSocket(ws_api);
-
-        socket.onopen = function () {
-            console.log("prices ws.onopen()")
-        };
-        socket.onmessage = this.ws_onmessage.bind(this);
-        socket.onclose = function () {
-            console.log("ws.onclose");
-            this.ws_reconnect();
-        }.bind(this);
-        return socket;
-    }
-
-    ws_onmessage(event) {
-        let msg = this.state.msg;
-        let tp = {counter: this.msgCounter, data: event.data};
-        if (msg.length < this.displayMsgLength) {
-            msg.push(tp);
-        } else {
-            let i = this.msgCounter % this.displayMsgLength;
-            msg[i] = tp;
+        this.state = {
+            data: {price: -1, datetime: '?', open_price: -1},
+            symbol: props.symbol
         }
-        this.msgCounter += 1;
-        this.setState({msg: msg});
     }
 
-    ws_reconnect() {
-        console.log("ws_reconnect");
-        this.ws.close();
-        this.ws = this.init_ws();
-    }
-
-    componentDidMount() {
+    handleData(data) {
+        let result = JSON.parse(data);
+        if (result.open_price == undefined) {
+            result.open_price = this.state.data.open_price;
+        }
+        console.log(result);
+        this.setState({data: result});
     }
 
     render() {
-        let msgList = this.state.msg.map((m) => <div>{m.counter} {m.data}<br/></div>);
+        let wsUrl = 'ws://www.surprice3c.com:8000/prices/' + this.state.symbol;
+        let price_change = parseFloat((this.state.data.price - this.state.data.open_price).toFixed(2));
+        let price_change_percent = (price_change / this.state.data.open_price * 100.0).toFixed(2);
+        const border = {border: "1px solid black", display: "inline-block", padding: "5px"};
+        const red = {color: 'red'};
+        const green = {color: 'green'};
+        const colorRedGreen = (val, red, green) => {
+            return val >= 0 ? red : green;
+        };
+        const arrowUpDown = (val) => {
+            return val >= 0 ? <span>&#9650;</span> : <span>&#9660;</span>;
+        };
         return (
-            <div>
-                <p> ----- Realtime Quote ----- </p>
-                {msgList}
-                <p> -------------------------- </p>
-            </div>
+            <td>
+                <Websocket url={wsUrl} onMessage={this.handleData.bind(this)}/>
+                <ul style={border}>
+                    <li> {this.state.symbol} </li>
+                    <li style={colorRedGreen(price_change, red, green)}> {this.state.data.price} </li>
+                    <span style={colorRedGreen(price_change, red, green)}>
+                        {arrowUpDown(price_change)}{price_change} / {price_change_percent}&#37;
+                    </span>
+                </ul>
+            </td>
         )
     }
 }
 
-export default WsQuote
+const mapStateToProps = store => (
+    {
+        collapsedReducer: store.collapsedReducer
+    }
+);
+
+export default connect(mapStateToProps, actionCreators)(WsQuote)
+

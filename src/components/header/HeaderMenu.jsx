@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Menu, Icon } from 'antd';
+import { Col, Menu, Icon, Button } from 'antd'
+import {Link} from "react-router-dom"
 
 const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -11,10 +12,25 @@ class HeaderMenu extends React.Component {
   }
 
   render() {
+    const logoStyle = {
+      'width': '120px',
+      'height': '31px',
+      'background': '#333',
+      'border-radius': '6px',
+      'margin': '16px 24px 16px 0',
+      'float': 'left',
+    };
+
     const menuStyle = {
       'position': 'relative',
       'float': 'right',
-      'height': '100%',
+      'lineHeight': '64px',
+    };
+
+    const textStyle = {
+      'textAlign': 'center',
+      'fontSize': '21px',
+      'color': '#ffffff',
     };
 
     const menu = [
@@ -24,7 +40,8 @@ class HeaderMenu extends React.Component {
         style={menuStyle}
       >
         <Menu.Item key="mail">
-          <Icon type="mail" />Navigation One
+          <Link to='/layout'/>
+          <Icon type="mail" />Go to test Layout
         </Menu.Item>
         <Menu.Item key="app" disabled>
           <Icon type="appstore" />Navigation Two
@@ -47,6 +64,11 @@ class HeaderMenu extends React.Component {
 
     return (
       <Col>
+        <div className="logo" style={logoStyle}>
+          <p style={textStyle}>
+            Seafood AI
+          </p>
+        </div>
         {menu}
       </Col>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Popover, Button } from 'antd';
 
-import HeaderMenu from './HeaderMenu'
+import HeaderMenuInline from './HeaderMenuInline'
 
 
 class HeaderPopover extends React.Component {
@@ -16,12 +16,12 @@ class HeaderPopover extends React.Component {
       'border': 'none',
       'display': 'inline-block',
       'position': 'absolute',
-      'right': '18px',
+      'right': '5px',
       'top': '18px',
     };
 
     const iconBarStyle = {
-      'backgroundColor': '#22ff98',
+      'backgroundColor': '#17faff',
       'display': 'block',
       'height': '4px',
       'margin': '0 auto 4px',
@@ -31,7 +31,7 @@ class HeaderPopover extends React.Component {
     const popover = [
       <Popover
         placement="bottomRight"
-        content={<HeaderMenu menuMode="inline"/>}
+        content={<HeaderMenuInline />}
         trigger="click"
       >
         <Button style={hamburgerMenuStyle}>

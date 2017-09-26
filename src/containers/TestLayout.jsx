@@ -6,9 +6,8 @@ import Footer from '../components/Footer'
 import IndexMain from '../components/IndexMain'
 import MobileLayout from '../components/mobile/MobileLayout'
 
-class Index extends React.Component {
+class TestLayout extends React.Component {
   render() {
-
     const Desktop = ({ children }) => <Responsive minWidth={992} children={children} />;
     const Tablet = ({ children }) => <Responsive minWidth={768} maxWidth={992} children={children} />;
     const Mobile = ({ children }) => <Responsive maxWidth={768} children={children} />;
@@ -30,8 +29,9 @@ class Index extends React.Component {
           <MobileLayout/>
         </Mobile>
       </div>
+
     )
   }
 }
 
-export default Index
+export default TestLayout
