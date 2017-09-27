@@ -6,53 +6,53 @@ import Websocket from 'react-websocket'
 import * as actionCreators from '../actions'
 
 class WsPrice extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            data: {price: -1, datetime: '?', open_price: -1},
-            symbol: props.symbol
-        }
+    this.state = {
+      data: {price: -1, datetime: '?', open_price: -1},
+      symbol: props.symbol
     }
+  }
 
-    handleData(data) {
-        let result = JSON.parse(data);
-        console.log(result);
-        this.setState({data: result});
-    }
+  handleData(data) {
+    let result = JSON.parse(data);
+    console.log(result);
+    this.setState({data: result});
+  }
 
-    render() {
-        let wsUrl = 'ws://www.surprice3c.com:8000/prices/' + this.state.symbol;
-        let price_change = parseFloat((this.state.data.price - this.state.data.open_price).toFixed(2));
-        let price_change_percent = (price_change / this.state.data.open_price * 100.0).toFixed(2);
-        const border = {border: "1px solid black", display: "inline-block", padding: "5px"};
-        const red = {color: 'red'};
-        const green = {color: 'green'};
-        const colorRedGreen = (val, red, green) => {
-            return val >= 0 ? red : green;
-        };
-        const arrowUpDown = (val) => {
-            return val >= 0 ? <span>&#9650;</span> : <span>&#9660;</span>;
-        };
-        return (
-            <td>
-                <Websocket url={wsUrl} onMessage={this.handleData.bind(this)}/>
-                <ul style={border}>
-                    <li> {this.state.symbol} </li>
-                    <li style={colorRedGreen(price_change, red, green)}> {this.state.data.price} </li>
-                    <span style={colorRedGreen(price_change, red, green)}>
+  render() {
+    let wsUrl = 'ws://www.surprice3c.com:8000/prices/' + this.state.symbol;
+    let price_change = parseFloat((this.state.data.price - this.state.data.open_price).toFixed(2));
+    let price_change_percent = (price_change / this.state.data.open_price * 100.0).toFixed(2);
+    const border = {border: "1px solid black", display: "inline-block", padding: "5px"};
+    const red = {color: 'red'};
+    const green = {color: 'green'};
+    const colorRedGreen = (val, red, green) => {
+      return val >= 0 ? red : green;
+    };
+    const arrowUpDown = (val) => {
+      return val >= 0 ? <span>&#9650;</span> : <span>&#9660;</span>;
+    };
+    return (
+      <td>
+        <Websocket url={wsUrl} onMessage={this.handleData.bind(this)}/>
+        <ul style={border}>
+          <li> {this.state.symbol} </li>
+          <li style={colorRedGreen(price_change, red, green)}> {this.state.data.price} </li>
+          <span style={colorRedGreen(price_change, red, green)}>
                         {arrowUpDown(price_change)}{price_change} / {price_change_percent}&#37;
                     </span>
-                </ul>
-            </td>
-        )
-    }
+        </ul>
+      </td>
+    )
+  }
 }
 
 const mapStateToProps = store => (
-    {
-        collapsedReducer: store.collapsedReducer
-    }
+  {
+    collapsedReducer: store.collapsedReducer
+  }
 );
 
 export default connect(mapStateToProps, actionCreators)(WsPrice)

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Col, Menu, Icon } from 'antd'
+import {Col, Menu, Icon} from 'antd'
 import {Link} from "react-router-dom"
 
-const { SubMenu } = Menu;
+const {SubMenu} = Menu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class HeaderMenu extends React.Component {
@@ -31,7 +31,7 @@ class HeaderMenu extends React.Component {
       'textAlign': 'center',
       'fontSize': '21px',
       'color': '#ffffff',
-      'margin':'-16px',
+      'margin': '-16px',
     };
 
     const menu = [
@@ -42,13 +42,13 @@ class HeaderMenu extends React.Component {
       >
         <Menu.Item key="mail">
           <Link to='/layout'/>
-          <Icon type="mail" />Go to test Layout
+          <Icon type="mail"/>Go to test Layout
         </Menu.Item>
         <Menu.Item key="app">
           <Link to='/trading'/>
-          <Icon type="appstore" />Trading
+          <Icon type="appstore"/>Trading
         </Menu.Item>
-        <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
+        <SubMenu title={<span><Icon type="setting"/>Navigation Three - Submenu</span>}>
           <MenuItemGroup title="Item 1">
             <Menu.Item key="setting:1">Option 1</Menu.Item>
             <Menu.Item key="setting:2">Option 2</Menu.Item>

@@ -8,9 +8,9 @@ class Index extends React.Component {
   render() {
     return (
       <div className="layout ant-layout">
-        <Header />
-        <IndexMain />
-        <Footer />
+        <Header/>
+        <IndexMain/>
+        <Footer/>
       </div>
     )
   }

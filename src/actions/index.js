@@ -1,5 +1,5 @@
-import { addTest } from './testAction'
-import { clickToggle } from './collapsedAction'
+import {addTest} from './testAction'
+import {clickToggle} from './collapsedAction'
 
 export {
   addTest,

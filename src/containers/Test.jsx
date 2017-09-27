@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux';
-import { Link } from "react-router-dom"
-import { Layout, Menu, Icon, Button, Breadcrumb } from 'antd'
+import {connect} from 'react-redux';
+import {Link} from "react-router-dom"
+import {Layout, Menu, Icon, Button, Breadcrumb} from 'antd'
 import TSider from '../components/TSider'
 
 import '../themes/trading.css'
 
-const { Header, Content, Footer, Sider } = Layout;
+const {Header, Content, Footer, Sider} = Layout;
 
 let innerHeight
 
@@ -17,7 +17,7 @@ class Test extends React.Component {
     windowWidth: window.innerWidth,
     windowHeight: window.innerHeight
   }
-  
+
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
@@ -47,14 +47,14 @@ class Test extends React.Component {
       <Layout>
         <TSider/>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
+          <Header style={{background: '#fff', padding: 0}}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: this.state.windowHeight }}>
+          <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: this.state.windowHeight}}>
             Content
           </Content>
         </Layout>
@@ -64,9 +64,7 @@ class Test extends React.Component {
 }
 
 const mapStateToProps = store => (
-  {
-    
-  }
+  {}
 )
 
 export default connect(mapStateToProps, null)(Test)

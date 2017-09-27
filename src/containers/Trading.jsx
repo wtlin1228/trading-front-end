@@ -1,9 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import '../themes/trading.css'
 
-import { Layout } from 'antd';
+import {Layout} from 'antd';
 import Footer from "../components/Footer";
 import TContent from "../components/TContent";
 import TSider from "../components/TSider";
@@ -14,10 +14,10 @@ TSider.__ANT_LAYOUT_SIDER = true;
 class Trading extends React.Component {
   render() {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{minHeight: '100vh'}}>
         <TSider/>
         <Layout>
-          <header className="ant-layout-header" style={{ background: '#fff', padding: 0 }} />
+          <header className="ant-layout-header" style={{background: '#fff', padding: 0}}/>
           <TContent/>
           <Footer/>
         </Layout>
@@ -27,9 +27,7 @@ class Trading extends React.Component {
 }
 
 const mapStateToProps = store => (
-  {
-    
-  }
+  {}
 );
 
 export default connect(mapStateToProps, null)(Trading)

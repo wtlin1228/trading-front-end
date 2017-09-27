@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Popover, Button } from 'antd';
+import {Col, Popover, Button} from 'antd';
 
 import HeaderMenuInline from './HeaderMenuInline'
 
@@ -31,7 +31,7 @@ class HeaderPopover extends React.Component {
     const popover = [
       <Popover
         placement="bottomRight"
-        content={<HeaderMenuInline />}
+        content={<HeaderMenuInline/>}
         trigger="click"
       >
         <Button style={hamburgerMenuStyle}>
