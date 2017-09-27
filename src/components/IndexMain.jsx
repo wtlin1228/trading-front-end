@@ -53,21 +53,23 @@ class IndexMain extends React.Component {
                 <section style={coverStyle}>
                     <h1 style={textStyle}>Hi, trading ai</h1>
                 </section>
-                <div className="ant-layout-content" style={{padding: '0 50px'}}>
+                <div className="ant-layout-content" style={{padding: '20px 50px'}}>
                     <table>
                         <tbody>
                         <tr>{wsPriceList}</tr>
                         </tbody>
                     </table>
                 </div>
-                <div className="ant-layout-content" style={{padding: '0 50px'}}>
+                <div className="ant-layout-content" style={{padding: '20px 50px'}}>
                     <table>
                         <tbody>
                         <tr>{wsBsList}</tr>
                         </tbody>
                     </table>
                 </div>
-                <WsQuoteAll/>
+                <div className="ant-layout-content" style={{padding: '20px 50px'}}>
+                    <WsQuoteAll/>
+                </div>
             </div>
 
         )

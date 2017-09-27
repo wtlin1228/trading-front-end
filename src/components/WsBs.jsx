@@ -12,29 +12,29 @@ class WsBs extends React.Component {
         let sample_data =
             {
                 "bs": {
-                    "buy_count": 513,
-                    "sell_count_big": 7,
-                    "buy_count_big": 10,
-                    "bs_count_ratio": 0.459265890778872,
-                    "bs_lot_ratio": 0.48072108162243365,
-                    "sell_lot": 1037,
-                    "sell_count": 604,
-                    "buy_lot": 960
+                    "buy_count": 0,
+                    "sell_count_big": 0,
+                    "buy_count_big": 0,
+                    "bs_count_ratio": 0.00,
+                    "bs_lot_ratio": 0.00,
+                    "sell_lot": 0,
+                    "sell_count": 0,
+                    "buy_lot": 0
                 },
                 "diff": {
-                    "avg_diff_big": -3.814285714285715,
-                    "lot_diff_big": 15,
-                    "avg_diff": 0.15445761202122288,
-                    "count_diff": -91,
-                    "lot_diff": -77,
-                    "count_diff_big": 3
+                    "avg_diff_big": 0.00,
+                    "lot_diff_big": 0,
+                    "avg_diff": 0.00,
+                    "count_diff": 0,
+                    "lot_diff": 0,
+                    "count_diff_big": 0
                 },
-                "price": 10326.0,
+                "price": 0.0,
                 "date": {
                     "end": "2017-09-27T18:29:32+08:00",
                     "begin": "2017-09-27T15:00:00+08:00"
                 },
-                "stock_symbol": "MTX00"
+                "stock_symbol": ""
             };
 
         this.state = {

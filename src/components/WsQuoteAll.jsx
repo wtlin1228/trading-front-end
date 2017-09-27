@@ -3,7 +3,7 @@ import React from 'react';
 class WsQuoteAll extends React.Component {
     constructor() {
         super();
-        this.state = {recvText: "", msg: []};
+        this.state = {recvText: "", msgList: []};
         this.msgCounter = 0;
         this.displayMsgLength = 5;
         this.ws = this.initWs("ws://www.surprice3c.com:8000/prices");
@@ -24,16 +24,14 @@ class WsQuoteAll extends React.Component {
     }
 
     wsOnMessage(event) {
-        let msg = this.state.msg;
-        let tp = {counter: this.msgCounter, data: event.data};
-        if (msg.length < this.displayMsgLength) {
-            msg.push(tp);
-        } else {
-            let i = this.msgCounter % this.displayMsgLength;
-            msg[i] = tp;
-        }
+        let msgList = this.state.msgList;
         this.msgCounter += 1;
-        this.setState({msg: msg});
+        let data = {counter: this.msgCounter, data: event.data};
+        if (msgList.length >= this.displayMsgLength) {
+            msgList.shift();
+        }
+        msgList.push(data);
+        this.setState({msgList: msgList});
     }
 
     wsReconnect() {
@@ -46,11 +44,18 @@ class WsQuoteAll extends React.Component {
     }
 
     render() {
-        let msgList = this.state.msg.map((m) => <div key={m.id}>{m.counter} {m.data}<br/></div>);
+        let msgListFlatten = "Waiting price updates ...";
+        if (this.state.msgList.length > 0) {
+            msgListFlatten = this.state.msgList.map((m) =>
+                <div key={m.counter.toString()}>
+                    {m.counter} {m.data}<br/>
+                </div>);
+        }
+
         return (
             <div>
                 <p> ----- Realtime Quote ----- </p>
-                {msgList}
+                {msgListFlatten}
                 <p> -------------------------- </p>
             </div>
         )
