@@ -5,7 +5,7 @@ import Websocket from 'react-websocket'
 
 import * as actionCreators from '../actions'
 
-class WsQuote extends React.Component {
+class WsPrice extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,9 +17,6 @@ class WsQuote extends React.Component {
 
     handleData(data) {
         let result = JSON.parse(data);
-        if (result.open_price == undefined) {
-            result.open_price = this.state.data.open_price;
-        }
         console.log(result);
         this.setState({data: result});
     }
@@ -58,5 +55,5 @@ const mapStateToProps = store => (
     }
 );
 
-export default connect(mapStateToProps, actionCreators)(WsQuote)
+export default connect(mapStateToProps, actionCreators)(WsPrice)
 
