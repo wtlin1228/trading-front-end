@@ -2,7 +2,7 @@ import React from 'react';
 import * as actionCreators from '../actions'
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom"
-import {Button} from 'antd'
+import {Button, Row, Col, Card} from 'antd'
 import WsQuoteAll from './WsQuoteAll'
 import WsQuote from './WsPrice'
 import WsBs from './WsBs'
@@ -33,6 +33,11 @@ const textStyle = {
   padding: (innerHeight / 2) - 64
 }
 
+const wsPriceSectionStyle = {
+  margin: "10px",
+  padding: "10px"
+}
+
 class IndexMain extends React.Component {
   constructor(props) {
     super(props);
@@ -53,13 +58,13 @@ class IndexMain extends React.Component {
         <section style={coverStyle}>
           <h1 style={textStyle}>Hi, trading ai</h1>
         </section>
-        <div className="ant-layout-content" style={{padding: '20px 50px'}}>
-          <table>
-            <tbody>
-            <tr>{wsPriceList}</tr>
-            </tbody>
-          </table>
-        </div>
+
+        <section style={wsPriceSectionStyle}>
+          <Row type="flex" justify="center">
+            {wsPriceList}
+          </Row>   
+        </section>
+
         <div className="ant-layout-content" style={{padding: '20px 50px'}}>
           <table>
             <tbody>
