@@ -38,6 +38,11 @@ const wsPriceSectionStyle = {
   padding: "10px"
 }
 
+const featureSectionStyle = {
+  padding: "30px",
+  backgroundColor: "#fff"
+}
+
 class IndexMain extends React.Component {
   constructor(props) {
     super(props);
@@ -63,6 +68,59 @@ class IndexMain extends React.Component {
           <Row type="flex" justify="center">
             {wsPriceList}
           </Row>   
+        </section>
+
+        <section style={featureSectionStyle}>
+          <Row type="flex">
+            <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+              <div style={{textAlign: "center"}}>
+                <h1>Seafood AI FEATURES</h1>
+                <h3>ai</h3>
+              </div>
+            </Col>
+            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>
+            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>
+            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>
+            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>     
+          </Row>
+          <Row type="flex">
+            <Col offset={2} xs={24} sm={24} md={24} lg={8} xl={8}>
+              <div style={{padding:"10px"}}>
+                <h1>Advanced Chart</h1>
+                <h3>TradingViewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</h3>
+                <div>seafood</div>
+              </div>
+            </Col>
+            <Col offset={2} xs={24} sm={24} md={24} lg={12} xl={12}>
+              <div style={{padding:"50px"}}>
+                <img style={{width:"100%"}} src="../../static/img/1.png" alt=""/>
+              </div>
+            </Col>
+          </Row>
         </section>
 
         <div className="ant-layout-content" style={{padding: '20px 50px'}}>
