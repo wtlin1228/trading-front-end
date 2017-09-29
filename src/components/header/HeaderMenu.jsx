@@ -28,9 +28,10 @@ class HeaderMenu extends React.Component {
     };
 
     const textStyle = {
+      'fontFamily': 'Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif',
       'textAlign': 'center',
-      'fontSize': '21px',
-      'color': '#ffffff',
+      'fontSize': '12px',
+      'color': 'rgba(255, 255, 255, 0.67)',
       'margin': '-16px',
     };
 

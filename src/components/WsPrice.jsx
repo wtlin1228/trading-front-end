@@ -1,6 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
 import {Link} from "react-router-dom"
+import { Row, Col, Card } from 'antd'
 import Websocket from 'react-websocket'
 
 import * as actionCreators from '../actions'
@@ -35,16 +36,15 @@ class WsPrice extends React.Component {
       return val >= 0 ? <span>&#9650;</span> : <span>&#9660;</span>;
     };
     return (
-      <td>
-        <Websocket url={wsUrl} onMessage={this.handleData.bind(this)}/>
-        <ul style={border}>
-          <li> {this.state.symbol} </li>
-          <li style={colorRedGreen(price_change, red, green)}> {this.state.data.price} </li>
+      <Col xs={24} sm={24} md={2} lg={2} xl={2}>
+        <Card title={this.state.symbol} bordered={true}>
+          <Websocket url={wsUrl} onMessage={this.handleData.bind(this)}/>
+          <div style={colorRedGreen(price_change, red, green)}> {this.state.data.price} </div>
           <span style={colorRedGreen(price_change, red, green)}>
-                        {arrowUpDown(price_change)}{price_change} / {price_change_percent}&#37;
-                    </span>
-        </ul>
-      </td>
+              {arrowUpDown(price_change)}{price_change} / {price_change_percent}&#37;
+          </span>
+        </Card>
+      </Col>  
     )
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import * as actionCreators from '../actions'
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom"
-import {Button} from 'antd'
+import {Button, Row, Col, Card} from 'antd'
 import WsQuoteAll from './WsQuoteAll'
 import WsQuote from './WsPrice'
 import WsBs from './WsBs'
@@ -33,6 +33,16 @@ const textStyle = {
   padding: (innerHeight / 2) - 64
 }
 
+const wsPriceSectionStyle = {
+  margin: "10px",
+  padding: "10px"
+}
+
+const featureSectionStyle = {
+  padding: "00px",
+  backgroundColor: "#fff"
+}
+
 class IndexMain extends React.Component {
   constructor(props) {
     super(props);
@@ -49,17 +59,70 @@ class IndexMain extends React.Component {
     let wsPriceList = traceQuoteSymbols.map((sym) => <WsQuote symbol={sym} key={sym.id}/>);
     let wsBsList = traceQuoteSymbols.map((sym) => <WsBs symbol={sym} key={sym.id}/>);
     return (
-      <div>
+      <div className="ant-layout-content">
         <section style={coverStyle}>
           <h1 style={textStyle}>Hi, trading ai</h1>
         </section>
-        <div className="ant-layout-content" style={{padding: '20px 50px'}}>
-          <table>
-            <tbody>
-            <tr>{wsPriceList}</tr>
-            </tbody>
-          </table>
-        </div>
+
+        <section style={wsPriceSectionStyle}>
+          <Row type="flex" justify="center">
+            {wsPriceList}
+          </Row>   
+        </section>
+
+        <section style={featureSectionStyle}>
+          <Row type="flex">
+            <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+              <div style={{textAlign: "center"}}>
+                <h1>Seafood AI FEATURES</h1>
+                <h3>ai</h3>
+              </div>
+            </Col>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
+              <div style={{padding:"10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+                <h1>Exchange</h1>
+                <p>123321123321</p>
+              </div>
+            </Col>     
+          </Row>
+          <Row type="flex">
+            <Col offset={2} xs={22} sm={22} md={22} lg={8} xl={8}>
+              <div style={{padding:"10px"}}>
+                <h1>Advanced Chart</h1>
+                <h3>TradingViewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</h3>
+                <div>seafood</div>
+              </div>
+            </Col>
+            <Col offset={2} xs={22} sm={22} md={22} lg={12} xl={12}>
+              <div style={{padding:"50px"}}>
+                <img style={{width:"100%"}} src="../../static/img/1.png" alt=""/>
+              </div>
+            </Col>
+          </Row>
+        </section>
+
         <div className="ant-layout-content" style={{padding: '20px 50px'}}>
           <table>
             <tbody>
