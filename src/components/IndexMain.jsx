@@ -24,24 +24,24 @@ const coverStyle = {
   MozBackgroundSize: "cover",
   backgroundSize: "cover",
   OBackgroundSize: "cover",
-}
+};
 
 const textStyle = {
   color: "white",
   fontSize: "50px",
   textAlign: "center",
   padding: (innerHeight / 2) - 64
-}
+};
 
 const wsPriceSectionStyle = {
   margin: "10px",
   padding: "10px"
-}
+};
 
 const featureSectionStyle = {
   padding: "00px",
   backgroundColor: "#fff"
-}
+};
 
 class IndexMain extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class IndexMain extends React.Component {
   }
 
   render() {
-    let traceQuoteSymbols = ['TX00', 'MTX00', '2330', '2317', '3008',
+    let traceQuoteSymbols = ['TSEA', 'TX00', 'MTX00', '2330', '2317', '3008',
       'TX110300J7', 'TX110350J7', 'TX110400J7', 'TX110300V7', 'TX110350V7', 'TX110400V7'];
     let wsPriceList = traceQuoteSymbols.map((sym) => <WsQuote symbol={sym} key={sym.id}/>);
     let wsBsList = traceQuoteSymbols.map((sym) => <WsBs symbol={sym} key={sym.id}/>);
@@ -67,7 +67,7 @@ class IndexMain extends React.Component {
         <section style={wsPriceSectionStyle}>
           <Row type="flex" justify="center">
             {wsPriceList}
-          </Row>   
+          </Row>
         </section>
 
         <section style={featureSectionStyle}>
@@ -79,45 +79,45 @@ class IndexMain extends React.Component {
               </div>
             </Col>
             <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
-              <div style={{padding:"10px"}}>
-                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+              <div style={{padding: "10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"/>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
             </Col>
             <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
-              <div style={{padding:"10px"}}>
-                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+              <div style={{padding: "10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"/>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
             </Col>
             <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
-              <div style={{padding:"10px"}}>
-                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+              <div style={{padding: "10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"/>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
             </Col>
             <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
-              <div style={{padding:"10px"}}>
-                <i className="fa fa-github fa-4x" aria-hidden="true"></i>
+              <div style={{padding: "10px"}}>
+                <i className="fa fa-github fa-4x" aria-hidden="true"/>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
-            </Col>     
+            </Col>
           </Row>
           <Row type="flex">
             <Col offset={2} xs={22} sm={22} md={22} lg={8} xl={8}>
-              <div style={{padding:"10px"}}>
+              <div style={{padding: "10px"}}>
                 <h1>Advanced Chart</h1>
                 <h3>TradingViewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</h3>
                 <div>seafood</div>
               </div>
             </Col>
             <Col offset={2} xs={22} sm={22} md={22} lg={12} xl={12}>
-              <div style={{padding:"50px"}}>
-                <img style={{width:"100%"}} src="../../static/img/1.png" alt=""/>
+              <div style={{padding: "50px"}}>
+                <img style={{width: "100%"}} src="../../static/img/1.png" alt=""/>
               </div>
             </Col>
           </Row>
@@ -134,7 +134,6 @@ class IndexMain extends React.Component {
           <WsQuoteAll/>
         </div>
       </div>
-
     )
   }
 }
