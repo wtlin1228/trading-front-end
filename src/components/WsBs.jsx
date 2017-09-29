@@ -31,8 +31,8 @@ class WsBs extends React.Component {
         },
         "price": 0.0,
         "date": {
-          "end": "2017-09-27T18:29:32+08:00",
-          "begin": "2017-09-27T15:00:00+08:00"
+          "end": "2017-01-01T00:00:00+08:00",
+          "begin": "2017-01-01T00:00:00+08:00"
         },
         "stock_symbol": ""
       };
