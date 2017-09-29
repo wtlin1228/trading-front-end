@@ -39,7 +39,7 @@ const wsPriceSectionStyle = {
 }
 
 const featureSectionStyle = {
-  padding: "00px",
+  padding: "30px",
   backgroundColor: "#fff"
 }
 
