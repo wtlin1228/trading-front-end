@@ -39,7 +39,7 @@ const wsPriceSectionStyle = {
 }
 
 const featureSectionStyle = {
-  padding: "30px",
+  padding: "00px",
   backgroundColor: "#fff"
 }
 
@@ -59,7 +59,7 @@ class IndexMain extends React.Component {
     let wsPriceList = traceQuoteSymbols.map((sym) => <WsQuote symbol={sym} key={sym.id}/>);
     let wsBsList = traceQuoteSymbols.map((sym) => <WsBs symbol={sym} key={sym.id}/>);
     return (
-      <div>
+      <div className="ant-layout-content">
         <section style={coverStyle}>
           <h1 style={textStyle}>Hi, trading ai</h1>
         </section>
@@ -78,28 +78,28 @@ class IndexMain extends React.Component {
                 <h3>ai</h3>
               </div>
             </Col>
-            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
               <div style={{padding:"10px"}}>
                 <i className="fa fa-github fa-4x" aria-hidden="true"></i>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
             </Col>
-            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
               <div style={{padding:"10px"}}>
                 <i className="fa fa-github fa-4x" aria-hidden="true"></i>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
             </Col>
-            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
               <div style={{padding:"10px"}}>
                 <i className="fa fa-github fa-4x" aria-hidden="true"></i>
                 <h1>Exchange</h1>
                 <p>123321123321</p>
               </div>
             </Col>
-            <Col offset={2} xs={24} sm={24} md={24} lg={10} xl={10}>
+            <Col offset={2} xs={22} sm={22} md={22} lg={10} xl={10}>
               <div style={{padding:"10px"}}>
                 <i className="fa fa-github fa-4x" aria-hidden="true"></i>
                 <h1>Exchange</h1>
@@ -108,14 +108,14 @@ class IndexMain extends React.Component {
             </Col>     
           </Row>
           <Row type="flex">
-            <Col offset={2} xs={24} sm={24} md={24} lg={8} xl={8}>
+            <Col offset={2} xs={22} sm={22} md={22} lg={8} xl={8}>
               <div style={{padding:"10px"}}>
                 <h1>Advanced Chart</h1>
                 <h3>TradingViewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</h3>
                 <div>seafood</div>
               </div>
             </Col>
-            <Col offset={2} xs={24} sm={24} md={24} lg={12} xl={12}>
+            <Col offset={2} xs={22} sm={22} md={22} lg={12} xl={12}>
               <div style={{padding:"50px"}}>
                 <img style={{width:"100%"}} src="../../static/img/1.png" alt=""/>
               </div>

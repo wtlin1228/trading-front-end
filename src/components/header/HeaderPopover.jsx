@@ -15,13 +15,14 @@ class HeaderPopover extends React.Component {
       'background': 'none',
       'border': 'none',
       'display': 'inline-block',
-      'position': 'absolute',
+      'position': 'fixed',
       'right': '0px',
       'top': '18px',
+      'zIndex': '1000',
     };
 
     const iconBarStyle = {
-      'backgroundColor': '#ffffff',
+      'backgroundColor': '#616161',
       'display': 'block',
       'height': '4px',
       'margin': '0 auto 4px',
