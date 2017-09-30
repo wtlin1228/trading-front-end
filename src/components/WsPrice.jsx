@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom"
-import { Row, Col, Card } from 'antd'
+import {Row, Col, Card} from 'antd'
 import Websocket from 'react-websocket'
 
 import * as actionCreators from '../actions'
@@ -19,7 +19,9 @@ class WsPrice extends React.Component {
   handleData(data) {
     let result = JSON.parse(data);
     console.log(result);
-    this.setState({data: result});
+    if (!result.isEmpty()) {
+      this.setState({data: result});
+    }
   }
 
   render() {
@@ -44,7 +46,7 @@ class WsPrice extends React.Component {
               {arrowUpDown(price_change)}{price_change} / {price_change_percent}&#37;
           </span>
         </Card>
-      </Col>  
+      </Col>
     )
   }
 }

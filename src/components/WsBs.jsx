@@ -46,7 +46,9 @@ class WsBs extends React.Component {
   handleData(data) {
     let result = JSON.parse(data);
     console.log(result);
-    this.setState({data: result});
+    if (!result.isEmpty()) {
+      this.setState({data: result});
+    }
   }
 
   render() {
