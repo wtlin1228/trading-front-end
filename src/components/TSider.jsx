@@ -60,18 +60,22 @@ class TSider extends React.Component {
         </div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">
+            <Link to='/trading/buy_sell_strength'/>
             <Icon type="area-chart"/>
             <span>買賣力差</span>
           </Menu.Item>
           <Menu.Item key="2">
+            <Link to='/trading/blue_chip_stocks'/>
             <Icon type="pie-chart"/>
             <span>權值股動向</span>
           </Menu.Item>
           <Menu.Item key="3">
+            <Link to='/trading/chip_analysis'/>
             <Icon type="dot-chart"/>
             <span>籌碼分析</span>
           </Menu.Item>
           <Menu.Item key="4">
+            <Link to='/trading/options'/>
             <Icon type="bar-chart"/>
             <span>選擇權分析</span>
           </Menu.Item>
