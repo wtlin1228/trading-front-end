@@ -10,6 +10,10 @@ import rootSaga from './sagas'
 import Index from './containers/Index'
 import Test from './containers/Test'
 import Trading from './containers/Trading'
+import BlueChipStocks from './containers/BlueChipStocks'
+import BuySellStrength from './containers/BuySellStrength'
+import ChipAnalysis from './containers/ChipAnalysis'
+import Options from './containers/Options'
 
 const store = configureStore()
 store.runSaga(rootSaga)
@@ -21,7 +25,11 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Index}/>
           <Route path="/test" component={Test}/>
-          <Route path="/trading" component={Trading}/>
+          <Route exact path="/trading" component={Trading}/>
+          <Route path="/trading/blue_chip_stocks" component={BlueChipStocks}/>
+          <Route path="/trading/buy_sell_strength" component={BuySellStrength}/>
+          <Route path="/trading/chip_analysis" component={ChipAnalysis}/>
+          <Route path="/trading/options" component={Options}/>
         </Switch>
       </div>
     </Router>
