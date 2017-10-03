@@ -26,9 +26,9 @@ ReactDOM.render(
           <Route exact path="/" component={Index}/>
           <Route path="/test" component={Test}/>
           <Route exact path="/trading" component={Trading}/>
-          <Route path="/trading/blue_chip_stocks" component={BlueChipStocks}/>
-          <Route path="/trading/buy_sell_strength" component={BuySellStrength}/>
-          <Route path="/trading/chip_analysis" component={ChipAnalysis}/>
+          <Route path="/trading/blue-chip-stocks" component={BlueChipStocks}/>
+          <Route path="/trading/buy-sell-strength" component={BuySellStrength}/>
+          <Route path="/trading/chip-analysis" component={ChipAnalysis}/>
           <Route path="/trading/options" component={Options}/>
         </Switch>
       </div>
